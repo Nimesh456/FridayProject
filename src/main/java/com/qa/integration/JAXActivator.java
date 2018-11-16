@@ -5,6 +5,6 @@ import javax.ws.rs.core.Application;
 
 @ApplicationPath("rest")
 
-public class JAXActivator extends Application { //
+public class JAXActivator extends Application { 
 
 }

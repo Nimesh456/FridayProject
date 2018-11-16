@@ -5,12 +5,11 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-
 import com.qa.business.server.ClassroomService;
 import com.qa.classroom.classroom;
 import com.qa.util.JSONUtil;
 
-public class ClassroomMapRepo implements ClassroomService {
+public class ClassroomMapRepo implements ClassroomRepo {
 	@Inject
 	private JSONUtil util;
 	private final Long INITIAL_COUNT = 1L;
@@ -39,5 +38,16 @@ public class ClassroomMapRepo implements ClassroomService {
 	{
 		classroom classroom = new classroom ((long)1, "John", "Smith");
 		classroomMap.put(1L, classroom);
+	}
+
+	public String updateTrainer(Long id, String classroomToUpdate) {
+		classroom newclassroom = util.getObjectForJSON(classroomToUpdate, classroom.class);
+		classroomMap.put(id, newclassroom);
+		return classroomToUpdate;
+	}
+
+	public String deleteTrainer(Long id) {
+		classroomMap.remove(id);
+		return "{\"message\": \"accout sucessfully removed\"}";
 	}
 }

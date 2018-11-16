@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class classroom {
@@ -16,6 +17,8 @@ public class classroom {
 	private Long id;
 	private String Trainerfirstname;
 	private String Trainersecondname;
+	
+	//@OneToMany(mappedBy="trainee")
 	//private List<trainee> traineelist;
 	
 	public classroom(Long id, String trainerfirstname, String Trainersecondname) {
